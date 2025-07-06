@@ -1,0 +1,12 @@
+:root {
+  --color-primary: #333;
+  --color-bg: #fff;
+  --color-text: #333;
+  --border-radius: 8px;
+}
+
+body.dark {
+  --color-primary: #fff;
+  --color-bg: #333;
+  --color-text: #fff;
+}

@@ -1,0 +1,32 @@
+.meal-history-card {
+  display: flex;
+  gap: 12px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 12px;
+}
+
+.meal-history-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.meal-history-content {
+  padding: 8px;
+}
+
+.meal-history-content h4 {
+  margin: 0 0 4px;
+}
+
+.meal-category,
+.meal-date,
+.meal-fav,
+.meal-rating {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555;
+}
