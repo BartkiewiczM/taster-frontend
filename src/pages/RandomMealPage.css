@@ -1,18 +1,16 @@
-/* RandomMealPage.css */
-
 .random-meal {
   max-width: 600px;
   margin: 5rem auto;
   padding: 2rem;
-  background: #fff;
+  background: #1e1e1e; /* darker card */
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   text-align: center;
 }
 
 .random-meal h2 {
   margin-bottom: 1rem;
-  color: #333;
+  color: #fff;
 }
 
 .random-meal button {
@@ -27,7 +25,7 @@
 }
 
 .random-meal button:disabled {
-  background: #999;
+  background: #555;
   cursor: not-allowed;
 }
 
@@ -48,11 +46,12 @@
 
 .meal-details h3 {
   margin: 0.5rem 0;
-  color: #111;
+  color: #fff;
 }
 
 .meal-details p {
   line-height: 1.5;
+  color: #ddd;
 }
 
 .meal-details ul {
@@ -62,6 +61,7 @@
 
 .meal-details li {
   margin-bottom: 0.25rem;
+  color: #ccc;
 }
 
 .random-meal-page {
@@ -81,4 +81,38 @@
 
 .meal-history-list h3 {
   margin-bottom: 12px;
+  color: #fff;
+}
+
+.meal-controls label {
+  font-weight: 500;
+  color: #ccc;
+}
+
+.meal-controls select {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #1e1e1e;
+  color: #eee;
+  font-size: 1rem;
+}
+
+.meal-controls button {
+  padding: 0.6rem 1.2rem;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.meal-controls button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.meal-controls button:hover:enabled {
+  background: #666;
 }
