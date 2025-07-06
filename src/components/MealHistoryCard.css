@@ -30,3 +30,31 @@
   font-size: 0.85rem;
   color: #555;
 }
+
+.meal-rating {
+  margin: 0.5rem 0;
+}
+
+.star {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: gray;
+}
+
+.star.selected {
+  color: gold;
+}
+
+.favorite-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.favorite-button:hover {
+  color: gold;
+}

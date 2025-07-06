@@ -108,6 +108,7 @@ export default function RandomMealPage() {
         {mealHistories.map((h) => (
           <MealHistoryCard
             key={h.id}
+            id={h.id}
             name={h.name}
             imageUrl={h.image_url}
             category={h.category}
