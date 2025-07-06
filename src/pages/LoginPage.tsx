@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api";
 import { useAuth } from "../AuthContext";
 import "./LoginPage.css";
@@ -7,6 +8,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser, setToken } = useAuth();
+  const navigate = useNavigate();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -19,7 +21,7 @@ export default function LoginPage() {
       localStorage.setItem("user", JSON.stringify(result.user));
       localStorage.setItem("token", result.token);
 
-      alert("Logged in!");
+      navigate("/meal");
     } catch (err) {
       console.error(err);
       alert("Failed to login");

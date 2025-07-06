@@ -1,21 +1,25 @@
 import { useAuth } from "../AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 
 export default function Header() {
   const { user, setUser, setToken } = useAuth();
+  const navigate = useNavigate();
 
   function logout() {
     setUser(null);
     setToken(null);
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+    navigate("/login");
   }
 
   return (
     <header className="navbar">
       <div className="navbar__left">
-        <Link to="/" className="navbar__logo">🍽️ Taster</Link>
+        <Link to={user ? "/meal" : "/login"} className="navbar__logo">
+          🍽️ Taster
+        </Link>
       </div>
 
       <nav className="navbar__right">
