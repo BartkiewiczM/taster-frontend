@@ -47,6 +47,7 @@ export default function RandomMealPage() {
 
       const data = await res.json();
       setMeal(data);
+      await getMealHistories();
     } catch (err) {
       console.error("Error fetching meal:", err);
       alert("Something went wrong");
