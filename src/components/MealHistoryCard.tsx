@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useAuth } from "../AuthContext";
+import MealModal from "./MealModal";
 import "./MealHistoryCard.css";
 
 interface MealHistoryCardProps {
   id: number;
+  meal_id: string; // meal ID used for the modal fetch
   name: string;
   imageUrl: string;
   category: string;
@@ -14,6 +16,7 @@ interface MealHistoryCardProps {
 
 export default function MealHistoryCard({
   id,
+  meal_id,
   name,
   imageUrl,
   category,
@@ -24,6 +27,7 @@ export default function MealHistoryCard({
   const { token } = useAuth();
   const [favorite, setFavorite] = useState(initialFavorite);
   const [rating, setRating] = useState(initialRating);
+  const [showModal, setShowModal] = useState(false);
 
   async function toggleFavorite() {
     try {
@@ -78,6 +82,7 @@ export default function MealHistoryCard({
   return (
     <div className="meal-history-card">
       <img src={imageUrl} alt={name} className="meal-history-image" />
+
       <div className="meal-history-content">
         <h4>{name}</h4>
         <p className="meal-category">{category}</p>
@@ -106,6 +111,16 @@ export default function MealHistoryCard({
           {favorite ? "⭐️ Remove favorite" : "☆ Add to favorites"}
         </button>
       </div>
+
+      <div className="meal-history-actions">
+        <button className="show-details-button" onClick={() => setShowModal(true)}>
+          👁 Show Details
+        </button>
+      </div>
+
+      {showModal && (
+        <MealModal mealId={meal_id} onClose={() => setShowModal(false)} />
+      )}
     </div>
   );
 }
