@@ -6,7 +6,6 @@ import "./RandomMealPage.css";
 interface Meal {
   id: string;
   name: string;
-  description: string;
   image_url: string;
   ingredients: string[];
   recipe: string;
@@ -17,7 +16,6 @@ interface MealHistory {
   meal_id: string;
   name: string;
   category: string;
-  description: string;
   image_url: string;
   created_at: string;
   favorite: boolean;
@@ -89,7 +87,6 @@ export default function RandomMealPage() {
           <div className="meal-details">
             <h3>{meal.name}</h3>
             <img src={meal.image_url} alt={meal.name} />
-            <p>{meal.description}</p>
 
             <h4>Ingredients:</h4>
             <ul>
