@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useAuth } from "../AuthContext";
 import MealModal from "./MealModal";
 import "./MealHistoryCard.css";
+import StarRating from "./StarRating";
+
 
 interface MealHistoryCardProps {
   id: number;
-  meal_id: string; // meal ID used for the modal fetch
+  meal_id: string;
   name: string;
   imageUrl: string;
   category: string;
@@ -88,20 +90,7 @@ export default function MealHistoryCard({
         <p className="meal-category">{category}</p>
         <p className="meal-date">{new Date(createdAt).toLocaleString()}</p>
 
-        <div className="meal-rating">
-          {Array.from({ length: 5 }).map((_, i) => {
-            const star = i + 1;
-            return (
-              <button
-                key={star}
-                className={star <= rating ? "star selected" : "star"}
-                onClick={() => updateRating(star)}
-              >
-                ★
-              </button>
-            );
-          })}
-        </div>
+        <StarRating rating={rating} onRate={updateRating} />
 
         <button
           className="favorite-button"

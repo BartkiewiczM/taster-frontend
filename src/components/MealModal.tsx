@@ -1,4 +1,3 @@
-// src/components/MealModal.tsx
 import { useEffect, useState } from "react";
 import "./MealModal.css";
 import { useAuth } from "../AuthContext";
