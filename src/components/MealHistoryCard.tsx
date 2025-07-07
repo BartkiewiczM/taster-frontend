@@ -83,27 +83,29 @@ export default function MealHistoryCard({
 
   return (
     <div className="meal-history-card">
-      <img src={imageUrl} alt={name} className="meal-history-image" />
-
-      <div className="meal-history-content">
+      <div className="meal-history-image-wrapper">
+        <img src={imageUrl} alt={name} className="meal-history-image" />
+      </div>
+  
+      <div className="meal-history-info">
+        <div className="meal-history-category">{category}</div>
         <h4>{name}</h4>
-        <p className="meal-category">{category}</p>
         <p className="meal-date">{new Date(createdAt).toLocaleString()}</p>
-
-        <StarRating rating={rating} onRate={updateRating} />
-
+  
+        <div className="meal-history-meta">
+          <StarRating rating={rating} onRate={updateRating} />
+        </div>
+      </div>
+      <div className="meal-history-actions">
         <button
           className="favorite-button"
           onClick={toggleFavorite}
           title={favorite ? "Remove from favorites" : "Add to favorites"}
         >
-          {favorite ? "⭐️ Remove favorite" : "☆ Add to favorites"}
+          {favorite ? "♥" : "♡"}
         </button>
-      </div>
-
-      <div className="meal-history-actions">
-        <button className="show-details-button" onClick={() => setShowModal(true)}>
-          👁 Show Details
+        <button className="details-button" onClick={() => setShowModal(true)}>
+          Show Details
         </button>
       </div>
 
