@@ -18,24 +18,28 @@ export default function Header() {
     <header className="navbar">
       <div className="navbar__left">
         <Link to={user ? "/meal" : "/login"} className="navbar__logo">
-          🍽️ Taster
+          Taster
         </Link>
       </div>
 
-      <nav className="navbar__right">
-        {user ? (
-          <>
-            <span className="navbar__user">{user.email}</span>
-            <Link to="/meal" className="navbar__link">Random Meal</Link>
-            <button className="navbar__button" onClick={logout}>Logout</button>
-          </>
-        ) : (
-          <>
-            <Link to="/login" className="navbar__link">Login</Link>
-            <Link to="/register" className="navbar__link">Register</Link>
-          </>
-        )}
-      </nav>
+      {user && (
+        <div className="navbar__right">
+          <span className="navbar__user">{user.email}</span>
+          <Link to="/meal" className="navbar__primary-button">
+            Get Random Meal
+          </Link>
+          <button className="navbar__logout" onClick={logout}>
+            Logout ↻
+          </button>
+        </div>
+      )}
+
+      {!user && (
+        <div className="navbar__right">
+          <Link to="/login" className="navbar__link">Login</Link>
+          <Link to="/register" className="navbar__link">Register</Link>
+        </div>
+      )}
     </header>
   );
 }
