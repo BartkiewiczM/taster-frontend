@@ -4,11 +4,24 @@
   padding: 0;
 }
 
+:root {
+  --main-background: #1A1A2E;
+  --container-background: #2C2E43;
+  --primary-button: #715C99;
+  --primary-faded: #CDD5FE;
+  --primary-text: #FFFFFF;
+  --secondary-text: #E0E0E0;
+  --accent: #F7B267;
+  --star: #FFD700;
+  --border: #3A3C51;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
-  background: #121212;
-  color: #eee;
+  font-family: 'SF Pro Display', 'Inter', sans-serif;
+  background: var(--main-background);
+  color: var(--primary-text);
   line-height: 1.5;
+  min-height: 100vh;
 }
 
 a {
@@ -18,4 +31,34 @@ a {
 
 button {
   font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+select {
+  font-family: inherit;
+  background: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+p {
+  color: var(--secondary-text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.rounded {
+  border-radius: 12px;
+}
+
+.shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

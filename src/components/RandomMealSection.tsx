@@ -2,6 +2,7 @@ import { useState } from "react";
 import MealDetails from "./MealDetails";
 import MealNotFoundCard from "./MealNotFoundCard";
 import { useAuth } from "../AuthContext";
+import "./RandomMealSection.css";
 
 interface Meal {
   id: string;
@@ -75,33 +76,39 @@ export default function RandomMealSection({ onNewMeal }: RandomMealSectionProps)
   return (
     <div className="random-meal">
       <h2>Random Meal</h2>
-
-      <div className="meal-controls">
-        <label htmlFor="category-select">Choose category:</label>
-
-        <select
-          id="category-select"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          <option value="">Any</option>
-          {CATEGORIES.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
-
-        <button onClick={getRandomMeal} disabled={loading}>
-          {loading ? "Loading..." : "Get Random Meal"}
-        </button>
+      <div className="random-meal-frame">
+        <div className="random-meal-icon">📦</div>
+  
+        <p className="random-meal-description">
+          <strong>Not craving anything today?</strong><br />
+          We got you! Choose a category, hit "Get Random Meal" and let us pick something delicious for you.
+        </p>
+  
+        <div className="meal-controls">
+          <select
+            id="category-select"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="">Choose category</option>
+            {CATEGORIES.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+  
+          <button onClick={getRandomMeal} disabled={loading}>
+            {loading ? "Loading..." : "Get Random Meal"}
+          </button>
+        </div>
+  
+        {meal ? (
+          <MealDetails meal={meal} />
+        ) : !loading && selectedCategory ? (
+          <MealNotFoundCard />
+        ) : null}
       </div>
-
-      {meal ? (
-        <MealDetails meal={meal} />
-      ) : !loading && selectedCategory ? (
-        <MealNotFoundCard />
-      ) : null}
     </div>
-  );
+  );  
 }
