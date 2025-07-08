@@ -13,7 +13,7 @@
 }
 
 .meal-modal {
-  background: #1e1e1e;
+  background: var(--container-background, #2C2E43);
   color: #eee;
   padding: 2rem;
   border-radius: 12px;
@@ -39,4 +39,22 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.meal-details {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 2px solid var(--border, #3A3C51);
+  border-radius: 12px;
+  background: var(--main-background, #1A1A2E);
+  padding-top: 1rem;
+}
+
+.meal-ingredients {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
 }

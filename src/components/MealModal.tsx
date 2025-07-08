@@ -56,15 +56,19 @@ export default function MealModal({ mealId, onClose }: MealModalProps) {
           <div>
             <h2>{meal.name}</h2>
             <img src={meal.image_url} alt={meal.name} />
-            <h4>Category: {meal.category}</h4>
-            <h4>Ingredients:</h4>
-            <ul>
-              {meal.ingredients.map((ing) => (
-                <li key={ing}>{ing}</li>
-              ))}
-            </ul>
-            <h4>Recipe:</h4>
-            <p>{meal.recipe}</p>
+            <div className="meal-details">
+              <h4>Category: {meal.category}</h4>
+              <h4>Ingredients:</h4>
+              <div className="meal-ingredients">
+                <ul>
+                  {meal.ingredients.map((ing) => (
+                    <li key={ing}>{ing}</li>
+                  ))}
+                </ul>
+              </div>
+              <h4>Recipe:</h4>
+              <p>{meal.recipe}</p>
+            </div>
           </div>
         ) : (
           <p>Loading...</p>
