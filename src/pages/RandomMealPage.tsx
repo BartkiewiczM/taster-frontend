@@ -19,7 +19,7 @@ interface MealHistory {
 }
 
 export default function RandomMealPage() {
-  const { token, setToken, setUser } = useAuth();
+  const { setToken, setUser } = useAuth();
   const navigate = useNavigate();
   const [mealHistories, setMealHistories] = useState<MealHistory[]>([]);
 
