@@ -1,11 +1,21 @@
 .random-meal-page {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 40px;
   padding: 40px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.user-preferences-header {
+  text-align: center;
+}
+
+.content-sections {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
 }
 
 .random-meal {

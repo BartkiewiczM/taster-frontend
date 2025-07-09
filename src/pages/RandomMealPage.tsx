@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RandomMealSection from "../components/RandomMealSection";
 import MealHistoryList from "../components/MealHistoryList";
+import UserPrerenences from "../components/UserPrerenences";
 import { useAuth } from "../AuthContext";
 import "./RandomMealPage.css";
 
@@ -42,8 +43,15 @@ export default function RandomMealPage() {
 
   return (
     <div className="random-meal-page">
-      <RandomMealSection onNewMeal={getMealHistories} />
-      <MealHistoryList histories={mealHistories} />
+      <div className="user-preferences-header">
+        <h1>Random Meal Generator</h1>
+        <UserPrerenences />
+      </div>
+
+      <div className="content-sections">
+        <RandomMealSection onNewMeal={getMealHistories} />
+        <MealHistoryList histories={mealHistories} />
+      </div>
     </div>
   );
 }
