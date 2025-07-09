@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import RandomMealSection from "../components/RandomMealSection";
 import MealHistoryList from "../components/MealHistoryList";
 import UserPrerenences from "../components/UserPrerenences";
 import { useAuth } from "../AuthContext";
+import { fetchWithAuth } from "../api/fetchWithAuth";
 import "./RandomMealPage.css";
 
 interface MealHistory {
@@ -17,16 +19,25 @@ interface MealHistory {
 }
 
 export default function RandomMealPage() {
-  const { token } = useAuth();
+  const { token, setToken, setUser } = useAuth();
+  const navigate = useNavigate();
   const [mealHistories, setMealHistories] = useState<MealHistory[]>([]);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setToken(null);
+    setUser(null);
+    navigate("/login");
+  };
 
   async function getMealHistories() {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/meal_histories`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await fetchWithAuth(
+        `${import.meta.env.VITE_API_URL}/meal_histories`,
+        {},
+        logout
+      );
 
       if (!res.ok) return;
 
